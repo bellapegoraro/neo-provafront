@@ -1,4 +1,4 @@
-import { CHARACTERS } from ".actionsTypes";
+import { CHARACTERS } from "./actionsTypes";
 
 export const charactersReducer = (state = [], action) => {
   switch (action.type) {
