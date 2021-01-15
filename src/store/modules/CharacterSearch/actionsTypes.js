@@ -1,1 +1,1 @@
-export const CHARACTERS = "@get/POKEMON";
+export const CHARACTER = "@get/POKEMON";
