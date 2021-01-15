@@ -1,5 +1,11 @@
+import Header from "./components/header/index";
+
 const App = () => {
-  return <div>Awesome app</div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 };
 
 export default App;
