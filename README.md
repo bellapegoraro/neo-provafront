@@ -35,3 +35,7 @@ Algumas coisas a mais:
 - Styled Components
 - HTML 5
 - React Testing Library
+
+## Dev
+
+Isabella Pegoraro
