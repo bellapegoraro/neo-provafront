@@ -1,6 +1,6 @@
 import { CHARACTERS } from "./actionsTypes";
 
-export const getPokemon = (character) => ({
+export const getPokemon = (characters) => ({
   type: CHARACTERS,
-  character,
+  characters,
 });

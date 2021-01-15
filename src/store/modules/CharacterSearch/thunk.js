@@ -5,7 +5,9 @@ export const getPokemonThunk = (input, setError) => (dispatch) => {
   axios
     .get(`https://pokeapi.co/api/v2/pokemon/${input}`)
     .then((res) => {
-      dispatch(getPokemon(res));
+      dispatch(getPokemon(res.data));
     })
-    .catch((err) => setError(err));
+    .catch((err) => {
+      setError(err);
+    });
 };
