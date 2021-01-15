@@ -10,8 +10,17 @@ const Header = () => {
     <Container>
       <Logo />
       <Inputs>
-        <Button onClick={() => history.push("/pokedex")}>Seus pokemons</Button>
-        {location.pathname === "/" && <Search />}
+        {location.pathname === "/" && (
+          <>
+            <Button onClick={() => history.push("/pokedex")}>
+              Seus pokemons
+            </Button>
+            <Search />
+          </>
+        )}
+        {location.pathname === "/pokedex" && (
+          <Button onClick={() => history.push("/")}>Home</Button>
+        )}
       </Inputs>
     </Container>
   );
