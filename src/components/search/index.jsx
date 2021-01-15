@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import { useDispatch } from "react-redux";
-import { getPokemonThunk } from "../../store/modules/CharacterSearch/thunk";
+import { getPokemonThunk } from "../../store/modules/Character/thunk";
 import { useState } from "react";
 
 const Search = () => {
@@ -19,6 +19,7 @@ const Search = () => {
   const handleSearch = () => {
     dispatch(getPokemonThunk(input, setError));
     setInput("");
+    setError(null);
   };
 
   const useStyles = makeStyles((theme) => ({
