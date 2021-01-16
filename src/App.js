@@ -1,18 +1,16 @@
 import Header from "./components/header/index";
 import Footer from "./components/footer/index";
-import Card from "./components/card/index";
+import Routes from "./pages/routes/index";
 import { Container } from "./AppStyle";
-import { Switch, Route } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 const App = () => {
+  const location = useLocation();
+
   return (
     <Container>
       <Header />
-      <Switch>
-        <Route exact path="/">
-          <Card />
-        </Route>
-        <Route path="/pokedex"></Route>
-      </Switch>
+      <Routes location={location} />
       <Footer />
     </Container>
   );
