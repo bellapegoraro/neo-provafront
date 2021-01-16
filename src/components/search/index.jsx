@@ -34,7 +34,7 @@ const Search = () => {
     <Container>
       <InputBase
         className={classes.input}
-        placeholder="Pesquisar"
+        placeholder="Search"
         inputProps={{ "aria-label": "search your pokemon" }}
         value={input}
         onChange={handleInput}

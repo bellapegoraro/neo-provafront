@@ -13,7 +13,7 @@ const Header = () => {
         {location.pathname === "/" && (
           <>
             <Button onClick={() => history.push("/pokedex")}>
-              Seus pokemons
+              Your pokemons
             </Button>
             <Search />
           </>
