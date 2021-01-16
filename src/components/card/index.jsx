@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
 import Evolution from "../evolution/index";
 import Types from "../types/index";
 import Abilities from "../abilities/index";
@@ -6,7 +7,10 @@ import { addPokemonThunk } from "../../store/modules/Pokedex/thunk";
 import { Container, Name, Image, Title, Elements, List, Button } from "./style";
 
 const Character = () => {
+  const [types, setTypes] = useState(false);
+  const [abilities, setAbilities] = useState(false);
   const character = useSelector((state) => state.pokemons);
+  const favorites = useSelector((state) => state.pokedex);
   const dispatch = useDispatch();
   return (
     <>
@@ -22,17 +26,27 @@ const Character = () => {
             {" "}
             <Title>Weight: </Title> {character.weight}
           </Elements>
-          <Elements>
+          <Elements hover={true} onClick={() => setTypes(!types)}>
             <Title>Type: </Title>
             {character.types.map((stats) => stats.type.name)}
+            {types && (
+              <>
+                <br />
+                <Title>Same type Pokemons</Title>{" "}
+                <Types url={character.types[0].type.url} />{" "}
+              </>
+            )}
           </Elements>
           <Elements>
             <Title>Abilities:</Title>
 
             {character.abilities.map((stats) => (
               <>
-                <List>{stats.ability.name}</List>
-                <Abilities url={stats.ability.url} />
+                {console.log(abilities)}
+                <List onClick={() => setAbilities(!abilities)}>
+                  {stats.ability.name}
+                </List>
+                {abilities && <Abilities url={stats.ability.url} />}
               </>
             ))}
           </Elements>
@@ -52,7 +66,7 @@ const Character = () => {
             <Title>Evolutions:</Title>
             <Evolution url={character.species.url} />
           </Elements>
-          {/* <Elements>{/* <Types url={character.types[0].type.url} /> */}
+
           <Button onClick={() => dispatch(addPokemonThunk(character))}>
             Catch!
           </Button>

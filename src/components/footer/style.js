@@ -6,6 +6,9 @@ const Container = styled.div`
   align-items: center;
   height: 50px;
   background-color: #2b2d42;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 `;
 
 const Text = styled.span`
