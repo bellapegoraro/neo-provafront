@@ -1,6 +1,6 @@
 import { ADD_POKEDEX, REMOVE_POKEDEX } from "./actionsTypes";
 
-const pokedexReducer = (state = [], action) => {
+export const pokedexReducer = (state = [], action) => {
   switch (action.type) {
     case ADD_POKEDEX:
       return [...state, action.character];
@@ -10,5 +10,3 @@ const pokedexReducer = (state = [], action) => {
       return state;
   }
 };
-
-export default pokedexReducer;
