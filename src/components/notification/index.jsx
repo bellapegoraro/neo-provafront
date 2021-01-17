@@ -5,7 +5,7 @@ const Notification = ({ added, error }) => {
     <Container>
       {added && "Pokemon captured!"}
       {added === false && error === undefined ? "Pokemon released!" : null}
-      {error && "Oops! Looks like it is not a Pokemon"}
+      {error && "Oops! Looks like it's not a Pokemon"}
     </Container>
   );
 };

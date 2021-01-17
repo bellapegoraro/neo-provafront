@@ -3,14 +3,18 @@ import { useState, useEffect } from "react";
 
 const Abilities = ({ url }) => {
   const [response, setResponse] = useState(null);
+  const [isMounted, setMounted] = useState(true);
   const loadData = async () => {
     const data = await axios.get(url);
     setResponse(data.data);
   };
   useEffect(() => {
-    loadData();
+    isMounted && loadData();
+    return () => {
+      return setMounted(false);
+    };
   }, [response]);
-  return <div>{response && response.effect_entries[1].short_effect}</div>;
+  return <li>{response && response.effect_entries[1].short_effect}</li>;
 };
 
 export default Abilities;

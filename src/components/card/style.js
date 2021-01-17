@@ -47,12 +47,12 @@ const Elements = styled.div`
 
 const List = styled.li`
   font-weight: bolder;
-  :hover {
+  /* :hover {
     cursor: pointer;
     transition: all 0.3s;
     background-color: #d90429;
     padding: 10px;
-  }
+  } */
 `;
 
 const Button = styled.button`

@@ -19,7 +19,7 @@ import {
   Input,
 } from "./style";
 
-const Character = ({ location }) => {
+const Card = ({ location }) => {
   const [types, setTypes] = useState(false);
   const [abilities, setAbilities] = useState(false);
   const [open, setOpen] = useState(false);
@@ -80,14 +80,12 @@ const Character = ({ location }) => {
                 </>
               )}
             </Elements>
-            <Elements>
+            <Elements hover={true} onClick={() => setAbilities(!abilities)}>
               <Title>Abilities:</Title>
 
               {character.abilities.map((stats) => (
                 <>
-                  <List onClick={() => setAbilities(!abilities)}>
-                    {stats.ability.name}
-                  </List>
+                  <List>{stats.ability.name}</List>
                   {abilities && <Abilities url={stats.ability.url} />}
                 </>
               ))}
@@ -153,14 +151,11 @@ const Character = ({ location }) => {
                 </>
               )}
             </Elements>
-            <Elements>
+            <Elements hover={true} onClick={() => setAbilities(!abilities)}>
               <Title>Abilities:</Title>
-
               {character.abilities.map((stats) => (
                 <>
-                  <List onClick={() => setAbilities(!abilities)}>
-                    {stats.ability.name}
-                  </List>
+                  <List>{stats.ability.name}</List>
                   {abilities && <Abilities url={stats.ability.url} />}
                 </>
               ))}
@@ -187,4 +182,4 @@ const Character = ({ location }) => {
   );
 };
 
-export default Character;
+export default Card;

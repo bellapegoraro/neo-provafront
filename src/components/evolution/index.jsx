@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 const Evolution = ({ url }) => {
   const [response, setResponse] = useState(null);
+  const [isMounted, setMounted] = useState(true);
 
   const loadData = async () => {
     const firstRequest = await axios.get(url);
@@ -15,7 +16,10 @@ const Evolution = ({ url }) => {
   };
 
   useEffect(() => {
-    loadData();
+    isMounted && loadData();
+    return () => {
+      return setMounted(false);
+    };
   }, [response]);
 
   return (
