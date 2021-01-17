@@ -74,4 +74,35 @@ const Button = styled.button`
   }
 `;
 
-export { Container, Name, Image, Title, Elements, List, Button };
+const Input = styled.input`
+  color: transparent;
+  padding-top: 7px;
+  height: 40px;
+
+  ::-webkit-file-upload-button {
+    visibility: hidden;
+    display: none;
+  }
+
+  &:before {
+    border: none;
+    height: 40px;
+    outline: none;
+    padding: 10px;
+    width: 100px;
+    text-transform: uppercase;
+    color: white;
+    background-color: #8d99ae;
+    border-radius: 10px;
+    font-weight: bolder;
+    content: "Escolha um arquivo";
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-size: 10px;
+    outline: none;
+    text-align: center;
+    margin-left: 22%;
+  }
+`;
+
+export { Container, Name, Image, Title, Elements, List, Button, Input };

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  box-shadow: 3px 3px 5px #3838;
+  box-shadow: 3px 3px 5px #8d99ae;
   width: 200px;
   height: 60px;
   padding: 2%;
@@ -11,6 +11,7 @@ const Container = styled.div`
   top: 50px;
   border-radius: 10px;
   text-align: center;
+  font-family: "Barlow Semi Condensed", sans-serif;
 `;
 
 export { Container };
