@@ -6,10 +6,12 @@ import InputBase from "@material-ui/core/InputBase";
 import { useDispatch } from "react-redux";
 import { getPokemonThunk } from "../../store/modules/Character/thunk";
 import { useState } from "react";
+import Notification from "../notification/index";
 
 const Search = () => {
   const [input, setInput] = useState("");
-  const [error, setError] = useState(null);
+  const [open, setOpen] = useState(false);
+  const [error, setError] = useState(false);
   const dispatch = useDispatch();
 
   const handleInput = (e) => {
@@ -17,10 +19,15 @@ const Search = () => {
   };
 
   const handleSearch = () => {
-    dispatch(getPokemonThunk(input, setError));
+    dispatch(getPokemonThunk(input, setError, setOpen));
     setInput("");
-    setError(null);
   };
+
+  if (error === true) {
+    setTimeout(() => {
+      setOpen(false);
+    }, 5000);
+  }
 
   const useStyles = makeStyles((theme) => ({
     iconButton: {
@@ -31,24 +38,26 @@ const Search = () => {
   const classes = useStyles();
 
   return (
-    <Container>
-      <InputBase
-        className={classes.input}
-        placeholder="Search"
-        inputProps={{ "aria-label": "search your pokemon" }}
-        value={input}
-        onChange={handleInput}
-      />
-      <IconButton
-        type="submit"
-        className={classes.iconButton}
-        aria-label="search"
-        onClick={handleSearch}
-      >
-        <SearchIcon />
-      </IconButton>
-      {error && <span>erro</span>}
-    </Container>
+    <>
+      {open && <Notification error={error} />}
+      <Container>
+        <InputBase
+          className={classes.input}
+          placeholder="Search"
+          inputProps={{ "aria-label": "search your pokemon" }}
+          value={input}
+          onChange={handleInput}
+        />
+        <IconButton
+          type="submit"
+          className={classes.iconButton}
+          aria-label="search"
+          onClick={handleSearch}
+        >
+          <SearchIcon />
+        </IconButton>
+      </Container>
+    </>
   );
 };
 

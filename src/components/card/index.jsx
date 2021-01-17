@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import Evolution from "../evolution/index";
 import Types from "../types/index";
+import Notification from "../notification/index";
 import Abilities from "../abilities/index";
 import {
   addPokemonThunk,
@@ -12,18 +13,34 @@ import { Container, Name, Image, Title, Elements, List, Button } from "./style";
 const Character = ({ location }) => {
   const [types, setTypes] = useState(false);
   const [abilities, setAbilities] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [added, setAdded] = useState(false);
   const character = useSelector((state) => state.pokemons);
   const favorites = useSelector((state) => state.pokedex);
-  console.log(favorites);
   const dispatch = useDispatch();
+
+  if (open === true) {
+    setTimeout(() => {
+      setOpen(false);
+    }, 4000);
+  }
   return (
     <>
+      {open && <Notification added={added} />}
       {location.pathname === "/" &&
         character.map((character, index) => (
           <Container key={index}>
             <Name>{character.species.name}</Name>
             <Image alt="pokemon" src={character.sprites.front_default} />
-
+            <Button
+              onClick={() => {
+                dispatch(addPokemonThunk(character));
+                setOpen(true);
+                setAdded(true);
+              }}
+            >
+              Catch!
+            </Button>
             <Elements>
               <Title>Height: </Title> {character.height}
             </Elements>
@@ -47,7 +64,6 @@ const Character = ({ location }) => {
 
               {character.abilities.map((stats) => (
                 <>
-                  {console.log(abilities)}
                   <List onClick={() => setAbilities(!abilities)}>
                     {stats.ability.name}
                   </List>
@@ -71,10 +87,6 @@ const Character = ({ location }) => {
               <Title>Evolutions:</Title>
               <Evolution url={character.species.url} />
             </Elements>
-
-            <Button onClick={() => dispatch(addPokemonThunk(character))}>
-              Catch!
-            </Button>
           </Container>
         ))}
       {location.pathname === "/pokedex" &&
@@ -82,7 +94,15 @@ const Character = ({ location }) => {
           <Container key={index}>
             <Name>{character.species.name}</Name>
             <Image alt="pokemon" src={character.sprites.front_default} />
-
+            <Button
+              onClick={() => {
+                dispatch(removePokemonThunk(character.species.name));
+                setOpen(true);
+                setAdded(false);
+              }}
+            >
+              Realease!
+            </Button>
             <Elements>
               <Title>Height: </Title> {character.height}
             </Elements>
@@ -106,7 +126,6 @@ const Character = ({ location }) => {
 
               {character.abilities.map((stats) => (
                 <>
-                  {console.log(abilities)}
                   <List onClick={() => setAbilities(!abilities)}>
                     {stats.ability.name}
                   </List>
@@ -130,14 +149,6 @@ const Character = ({ location }) => {
               <Title>Evolutions:</Title>
               <Evolution url={character.species.url} />
             </Elements>
-
-            <Button
-              onClick={() =>
-                dispatch(removePokemonThunk(character.species.name))
-              }
-            >
-              Realease!
-            </Button>
           </Container>
         ))}
     </>

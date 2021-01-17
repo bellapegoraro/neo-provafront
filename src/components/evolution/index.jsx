@@ -21,15 +21,19 @@ const Evolution = ({ url }) => {
   return (
     <>
       {response &&
-        response.map((stats) => (
-          <div>{stats.chain.is_baby && stats.chain.species.name}</div>
+        response.map((stats, index) => (
+          <div key={index}>
+            {stats.chain.is_baby && stats.chain.species.name}
+          </div>
         ))}
       {response &&
         response.map((stats) =>
           stats.chain.evolves_to.map((stats) => (
             <>
-              <div>{stats.species?.name}</div>
-              <div>{stats.evolves_to[0]?.species?.name}</div>
+              <div key={stats.species?.name}>{stats.species?.name}</div>
+              <div key={stats.evolves_to[0]?.species?.name}>
+                {stats.evolves_to[0]?.species?.name}
+              </div>
             </>
           ))
         )}
