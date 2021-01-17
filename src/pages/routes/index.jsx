@@ -3,8 +3,6 @@ import Pokedex from "../pokedex/index";
 import Home from "../home/index";
 
 const Routes = ({ location }) => {
-  console.log(location);
-
   return (
     <Switch>
       <Route exact path="/">

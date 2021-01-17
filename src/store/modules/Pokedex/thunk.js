@@ -7,9 +7,11 @@ export const addPokemonThunk = (favorite) => (dispatch) => {
   dispatch(addPokemon(favorite));
 };
 
-export const removeCharacterThunk = (name) => (dispatch, getState) => {
-  const { favorite } = getState();
-  const list = favorite.filter((character) => character.name !== name);
+export const removePokemonThunk = (name) => (dispatch, getState) => {
+  const { pokedex } = getState();
+  console.log(name);
+  console.log(pokedex);
+  const list = pokedex.filter((character) => character.species.name !== name);
   localStorage.setItem("favorite", JSON.stringify(list));
   dispatch(removePokemon(list));
 };

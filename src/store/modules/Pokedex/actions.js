@@ -1,8 +1,8 @@
 import { ADD_POKEDEX, REMOVE_POKEDEX } from "./actionsTypes";
 
-export const addPokemon = (character) => ({
+export const addPokemon = (favorite) => ({
   type: ADD_POKEDEX,
-  character,
+  favorite,
 });
 
 export const removePokemon = (list) => ({

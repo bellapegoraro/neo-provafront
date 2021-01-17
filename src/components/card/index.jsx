@@ -3,7 +3,10 @@ import { useState } from "react";
 import Evolution from "../evolution/index";
 import Types from "../types/index";
 import Abilities from "../abilities/index";
-import { addPokemonThunk } from "../../store/modules/Pokedex/thunk";
+import {
+  addPokemonThunk,
+  removePokemonThunk,
+} from "../../store/modules/Pokedex/thunk";
 import { Container, Name, Image, Title, Elements, List, Button } from "./style";
 
 const Character = ({ location }) => {
@@ -11,8 +14,8 @@ const Character = ({ location }) => {
   const [abilities, setAbilities] = useState(false);
   const character = useSelector((state) => state.pokemons);
   const favorites = useSelector((state) => state.pokedex);
+  console.log(favorites);
   const dispatch = useDispatch();
-  console.log(location);
   return (
     <>
       {location.pathname === "/" &&
@@ -128,8 +131,12 @@ const Character = ({ location }) => {
               <Evolution url={character.species.url} />
             </Elements>
 
-            <Button onClick={() => dispatch(addPokemonThunk(character))}>
-              Catch!
+            <Button
+              onClick={() =>
+                dispatch(removePokemonThunk(character.species.name))
+              }
+            >
+              Realease!
             </Button>
           </Container>
         ))}
