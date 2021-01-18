@@ -36,6 +36,7 @@ const Button = styled.button`
   background-color: #8d99ae;
   border-bottom: 1px solid black;
   text-transform: uppercase;
+  outline: none;
 
   :hover {
     cursor: pointer;
