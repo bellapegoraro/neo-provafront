@@ -16,7 +16,7 @@ const Evolution = ({ url }) => {
   };
 
   useEffect(() => {
-    isMounted && loadData();
+    loadData();
     return () => {
       return setMounted(false);
     };
@@ -26,9 +26,7 @@ const Evolution = ({ url }) => {
     <>
       {response &&
         response.map((stats, index) => (
-          <div key={index}>
-            {stats.chain.is_baby && stats.chain.species.name}
-          </div>
+          <div key={index}>{stats.chain.species.name}</div>
         ))}
       {response &&
         response.map((stats) =>
