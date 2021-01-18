@@ -1,7 +1,13 @@
 import Card from "../../components/card/index";
+import Message from "../../components/message/index";
 
 const Home = ({ location }) => {
-  return <Card location={location}></Card>;
+  return (
+    <>
+      <Message />
+      <Card location={location}></Card>
+    </>
+  );
 };
 
 export default Home;
