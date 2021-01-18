@@ -8,6 +8,7 @@ const Container = styled.div`
   background-color: #fff;
   z-index: 1;
   top: 50px;
+  right: 10px;
   border-radius: 10px;
   text-align: center;
   display: flex;

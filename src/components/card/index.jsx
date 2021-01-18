@@ -18,6 +18,7 @@ import {
   Button,
   Input,
 } from "./style";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
 const Card = ({ location }) => {
   const [types, setTypes] = useState(false);
@@ -70,7 +71,10 @@ const Card = ({ location }) => {
               <Title>Weight: </Title> {character.weight}
             </Elements>
             <Elements hover={true} onClick={() => setTypes(!types)}>
-              <Title>Type: </Title>
+              <Title>
+                <ArrowDropDownIcon />
+                Type:{" "}
+              </Title>
               {character.types.map((stats) => stats.type.name)}
               {types && (
                 <>
@@ -81,7 +85,10 @@ const Card = ({ location }) => {
               )}
             </Elements>
             <Elements hover={true} onClick={() => setAbilities(!abilities)}>
-              <Title>Abilities:</Title>
+              <Title>
+                <ArrowDropDownIcon />
+                Abilities:
+              </Title>
 
               {character.abilities.map((stats) => (
                 <>

@@ -9,7 +9,7 @@ const Container = styled.div`
   border-radius: 20px;
   margin: 20px auto;
   margin-bottom: 70px;
-  background-color: #d90429;
+  background-color: #fdcb6e;
   color: white;
   font-family: "Barlow Semi Condensed", sans-serif;
   box-shadow: 5px 7px 5px -2px rgba(153, 153, 153, 0.75);
@@ -28,6 +28,9 @@ const Image = styled.img`
 
 const Title = styled.span`
   font-weight: bolder;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
 `;
 
 const Elements = styled.div`
@@ -35,7 +38,7 @@ const Elements = styled.div`
   margin: 5px;
   border-radius: 10px;
   border: 2px dotted white;
-  background-color: #ef233c;
+  background-color: #b37c14;
   padding: 10px;
   :hover {
     cursor: ${(props) => props.hover && "pointer"};
@@ -62,7 +65,7 @@ const Button = styled.button`
   width: 100px;
   text-transform: uppercase;
   color: white;
-  background-color: #8d99ae;
+  background-color: #0984e3;
   border-radius: 10px;
   margin-bottom: 10px;
   font-weight: bolder;
@@ -70,7 +73,7 @@ const Button = styled.button`
   :hover {
     cursor: pointer;
     transition: all 0.4s;
-    background-color: #2b2d42;
+    background-color: #74b9ff;
   }
 `;
 

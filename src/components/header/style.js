@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  background-color: #8d99ae;
+  background-color: #0984e3;
   height: 55px;
   display: flex;
   align-items: center;
@@ -33,7 +33,7 @@ const Button = styled.button`
   border: none;
   height: 35px;
   border-radius: 10px;
-  background-color: #8d99ae;
+  background-color: #0984e3;
   border-bottom: 1px solid black;
   text-transform: uppercase;
   outline: none;
@@ -41,7 +41,7 @@ const Button = styled.button`
   :hover {
     cursor: pointer;
     transition: all 0.4s;
-    background-color: #2b2d42;
+    background-color: #74b9ff;
   }
   @media (min-width: 600px) {
     width: 120px;

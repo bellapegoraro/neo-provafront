@@ -5,8 +5,8 @@ const Abilities = ({ url }) => {
   const [response, setResponse] = useState(null);
   const [isMounted, setMounted] = useState(true);
   const loadData = async () => {
-    const data = await axios.get(url);
-    setResponse(data.data);
+    const { data } = await axios.get(url);
+    setResponse(data);
   };
   useEffect(() => {
     isMounted && loadData();

@@ -5,7 +5,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 50px;
-  background-color: #2b2d42;
+  background-color: #0984e3;
   position: absolute;
   bottom: 0;
   width: 100%;
